@@ -68,6 +68,7 @@ export default {
       console.log("err", error.value);
       return true;
     });
+
     const data: DataProps = reactive({
       count: 0,
       increase: () => {
