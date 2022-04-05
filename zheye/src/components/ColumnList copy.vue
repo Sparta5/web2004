@@ -36,7 +36,7 @@ export default defineComponent({
   setup(props) {
     // 配置默认图片
     const columnList = computed(() => {
-      return props.list.map(item => {
+      return props.list.map((item) => {
         if (!item.avatar) item.avatar = require('../assets/defficult.jpg');
         return item;
       });
