@@ -97,7 +97,7 @@ export default defineComponent({
     // input子组件双向绑定的值
     const emailVal = ref('123@test.com')
     const passwordVal = ref('123')
-    const inputRef = ref<null | FormInputInterface>(null)
+    // const inputRef = ref<null | FormInputInterface>(null)
 
     const emailRef: any = reactive({
       emailRef: {
@@ -153,8 +153,8 @@ export default defineComponent({
       emailVal,
       passwordRules,
       passwordVal,
-      onSubmitFrom,
-      inputRef
+      onSubmitFrom
+      // inputRef
     }
   }
 })

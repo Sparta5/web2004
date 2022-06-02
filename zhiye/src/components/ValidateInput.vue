@@ -24,9 +24,11 @@ const emailReg =
 // 正则密码大于6位，不能包含空格
 const passwordReg = /^\S{6,}$/
 interface RuleProp {
-  type: 'required' | 'email' | 'min'
-  min?: number
-  message: string
+  type: 'required' | 'email' | 'min' | 'custom'
+  validator?: () => boolean
+  message?: string
+  min?: { length: number; message: string }
+  max?: { length: number; message: string }
 }
 export type RulesProp = RuleProp[]
 export default defineComponent({
@@ -49,7 +51,7 @@ export default defineComponent({
         // 循环每一个满足条件
         const allPassd = props.rules.every((rule) => {
           let passed = true
-          inputRef.message = rule.message
+          inputRef.message = rule.message || ''
           switch (rule.type) {
             case 'required':
               passed = inputRef.val.trim() !== ''
@@ -59,6 +61,9 @@ export default defineComponent({
               break
             case 'min':
               passed = passwordReg.test(inputRef.val)
+              break
+            case 'custom':
+              passed = rule.validator ? rule.validator() : true
               break
             default:
               break
@@ -84,8 +89,11 @@ export default defineComponent({
     }
     // 发送事件ValidateForm组件等待接收
     onMounted(() => {
-      emitter.emit('form-item-created', validateInput)
-      emitter.emit('form-item-clear', clearInput)
+      emitter.emit('form-item-created', {
+        validator: validateInput,
+        clearInput
+      })
+      // emitter.emit('form-item-clear', clearInput)
     })
 
     return {
