@@ -1,0 +1,21 @@
+ls:
+  .dir: kebab-case | PascalCase | regex:__[a-z0-9]+__
+  .vue: kebab-case | PascalCase | regex:__[a-z0-9]+__
+  .js: kebab-case | PascalCase | regex:__[a-z0-9]+__
+
+ignore:
+  - node_modules
+  - .git
+  - .vscode
+  - .hbuilderx
+  - .idea
+  - dist
+  - .eslintrc.js
+  - babel.config.js
+  - postcss.config.js
+  - .commitlintrc.js
+  - .cz-config.js
+  - vue.config.js
+  - src/assets
+  - tests
+  - jest.config.js

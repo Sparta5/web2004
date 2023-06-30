@@ -1,32 +1,33 @@
 <template>
-  <!-- 头部 -->
-  <GlobalHeader :user="user" />
-  <!-- 列表组件 -->
-  <!-- <ColumnList :list="list" /> -->
-  <ValidateForm @submitFrom="onSubmitFrom">
-    <div class="mb-3">
-      <label class="form-label">邮箱地址</label>
-      <!-- 表单组件 -->
-      <ValidateInput
-        ref="inputRef"
-        type="text"
-        placeholder="请输入邮箱地址"
-        :rules="emailRules"
-        v-model="emailVal"
-        class="hello text"
-      />
-      <div>{{ emailVal }}</div>
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">密码</label>
-      <ValidateInput
-        type="password"
-        placeholder="请输入密码"
-        :rules="passwordRules"
-        v-model="passwordVal"
-      />
-    </div>
-    <!-- <div class="mb-3">
+  <div>
+    <!-- 头部 -->
+    <GlobalHeader :user="user" />
+    <!-- 列表组件 -->
+    <!-- <ColumnList :list="list" /> -->
+    <ValidateForm @submitFrom="onSubmitFrom">
+      <div class="mb-3">
+        <label class="form-label">邮箱地址</label>
+        <!-- 表单组件 -->
+        <ValidateInput
+          ref="inputRef"
+          type="text"
+          placeholder="请输入邮箱地址"
+          :rules="emailRules"
+          v-model="emailVal"
+          class="hello text"
+        />
+        <div>{{ emailVal }}</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">密码</label>
+        <ValidateInput
+          type="password"
+          placeholder="请输入密码"
+          :rules="passwordRules"
+          v-model="passwordVal"
+        />
+      </div>
+      <!-- <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">邮箱地址</label>
       <input
         type="text"
@@ -37,7 +38,8 @@
       />
       <div class="form-text" v-if="emailRef.error">{{ emailRef.message }}</div>
     </div> -->
-  </ValidateForm>
+    </ValidateForm>
+  </div>
 </template>
 
 <script lang="ts">
