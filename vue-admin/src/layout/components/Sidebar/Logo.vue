@@ -24,7 +24,7 @@ export default {
 	},
 	data() {
 		return {
-			title: '川大智胜集成_Admin',
+			title: 'VUE_Admin',
 			logo: 'https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png'
 		};
 	}
