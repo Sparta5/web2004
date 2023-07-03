@@ -1,14 +1,14 @@
 <template>
 	<div class="broadside-box">
-		<span
+		<div
 			v-for="(item, index) in navList"
 			:key="index"
 			class="broadside-box-item"
 			:class="item.title === activeTitle ? 'broadside-box-item--active' : ''"
 			@click="handleClick(item)"
 		>
-			{{ item.title }}
-		</span>
+			<span class="text">{{ item.title }}</span>
+		</div>
 	</div>
 </template>
 
@@ -113,6 +113,15 @@ export default {
 		}
 		&:hover {
 			animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+		}
+		.text {
+			display: inline-block;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 120px;
+			line-height: 23px;
+			height: 23px;
 		}
 	}
 	&:hover {

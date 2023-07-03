@@ -7,7 +7,11 @@
 				<div v-for="(item, i) in pro" :key="i" class="list-item">
 					<span
 						class="list-item-cont"
-						v-html="`<b>${item.sequence}.</b>${item.description}&nbsp;&nbsp;&nbsp;`"
+						v-html="
+							`<b>${item.sequence}${item.solution.length > 1 ? '*' : '.'}</b>${
+								item.description
+							}&nbsp;&nbsp;&nbsp;`
+						"
 					></span>
 					<span
 						v-for="(label, l) in item.options"
